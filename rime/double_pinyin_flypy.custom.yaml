@@ -1,0 +1,89 @@
+# Rime schema
+# encoding: utf-8
+
+patch:
+  switches:
+    - name: ascii_mode
+      reset: 0  # 默认中文模式
+      states: [ 中, 英 ]  # 中文显示"中"，英文显示"英"
+    - name: ascii_punct
+      reset: 0  # 默认中文标点
+      states: [ 。，, ．， ]  # 中文标点显示"。，"，英文标点显示"．，"
+    - name: simplification
+      reset: 1 # 默认简中
+      states: [ 漢字, 汉字 ]
+    - name: full_shape
+      reset: 0 # 默认半角
+      states: [ 半角, 全角 ]
+  ascii_composer:
+    switch_key:
+      Caps_Lock: clear     # 中文模式下经常用 Vim 快捷键被迫输入一堆英文
+                           # 设置切换中英文清空
+      Shift_L: commit_code # 左 Shift 直接上屏
+  punctuator:
+    import_preset: default
+    half_shape:
+      ",": "，"
+      ".": "。"
+      "/": "/"
+      "#": "#"
+      "@": "@"
+      "$": "￥"
+      "%": "%"  # 半角
+      "*": "*"  # 半角
+      "+": "+"  # 半角
+      "^": "^"  # 半角
+      "=": "="
+  #    "`": "```"
+      "～": "~"
+      "<": "《"
+      ">": "》"
+      "[": "【"
+      "\\": "、"
+      "]": "】"
+      "{": "『"
+      "|": "|"  # 半角
+      "}": "』"
+  # 启用 emoji
+  # src: https://github.com/rime/rime-emoji/blob/master/emoji_suggestion.yaml
+  switches/@next:
+    name: emoji_suggestion
+    reset: 1
+    states: [ "🈚︎", "🈶️" ]
+  'engine/filters/@before 0':
+    simplifier@emoji_suggestion
+  emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: none
+    inherit_comment: false
+  engine/+:
+    translators/+:
+      - lua_translator@*date_translator
+  # 在双拼映射之前，将输入展开为 $1 | $1
+  # 在最后变为 $1(双拼码) | $1(全拼码)
+  # src: https://github.com/rime/rime-double-pinyin/issues/6
+  'translator/preedit_format/@before 0': 'xform/^(.*)$/\U$1\E\t$1/'
+  'translator/preedit_format/@after last': 'xform/^([A-Z ]*)(.*)$/\L$1〔$2〕\E/'
+
+  # 识别器：识别大写字母开头的输入，直接上屏
+  recognizer:
+    patterns:
+      email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"      # 识别邮箱地址
+      uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"       # 识别大写字母
+      url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"  # 识别 URL
+
+  # 按键绑定：快捷键配置
+  key_binder:
+    bindings:
+      - { when: always, accept: Control+period, toggle: ascii_punct }  # Ctrl+. 切换中英文标点
+      # 翻页按键（在有候选词时）
+      - { when: has_menu, accept: minus, send: Page_Up }      # - 键向前翻页
+      - { when: has_menu, accept: equal, send: Page_Down }    # = 键向后翻页
+      - { when: paging, accept: minus, send: Page_Up }        # 翻页模式下 - 键
+      - { when: paging, accept: equal, send: Page_Down }      # 翻页模式下 = 键
+      # Tab 键翻页
+      - { when: has_menu, accept: Tab, send: Page_Down }      # Tab 键向后翻页
+      - { when: has_menu, accept: Shift+Tab, send: Page_Up }  # Shift+Tab 向前翻页
+      - { when: paging, accept: Tab, send: Page_Down }        # 翻页模式下 Tab 键
+      - { when: paging, accept: Shift+Tab, send: Page_Up }    # 翻页模式下 Shift+Tab

@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Neovim
+nvim/.luarc.json
+
+# Rime - 排除自动生成的文件
+rime/build/
+rime/*.userdb/
+rime/installation.yaml
+rime/user.yaml
+rime/*.bin
+
+# VSCode - 排除可能包含敏感信息的文件
+vscode/chatLanguageModels.json
+
+# 备份文件
+*.bak
+*.backup
+*~

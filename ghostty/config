@@ -1,0 +1,49 @@
+keybind = global:opt+`=toggle_visibility
+macos-option-as-alt = false
+
+font-family = "Monaco"
+#font-family = "JetBrains Maple Mono"
+theme = "Dracula"
+
+font-size = 13.3
+# background-opacity = 0.5
+# background-blur-radius = 50
+cursor-style = block
+shell-integration-features = no-cursor
+cursor-style-blink = false
+adjust-cell-height= 35%
+# title = "👻"
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = transparent
+macos-icon = custom
+confirm-close-surface = true
+
+window-height = 27
+window-width = 105
+window-save-state = always
+window-padding-balance = true
+window-padding-x = 18
+window-padding-y = 18
+window-inherit-working-directory = false
+working-directory = home
+
+#keybindings
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
+
+# tabs
+keybind = cmd+s>c=new_tab
+keybind = cmd+s>comma=move_tab:-1
+keybind = cmd+s>period=move_tab:1
+
+# split 
+keybind = cmd+s>\=new_split:right
+keybind = cmd+s>-=new_split:down
+
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>l=goto_split:right
+
+keybind = cmd+s>z=toggle_split_zoom
+keybind = cmd+s>e=equalize_splits

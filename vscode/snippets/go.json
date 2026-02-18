@@ -1,0 +1,38 @@
+{
+    "main function": {
+        "prefix": "main",
+        "body": [
+            "func main() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "main func"
+    },
+    "function definition": {
+        "prefix": "fun1c",
+        "body": [
+            "func ${1:name}(${2:params}) ${3:returnType} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "定义一个普通函数"
+    },
+    "if err check": {
+        "prefix": "err",
+        "body": [
+            "if ${1:err} != nil {",
+            "\treturn ${2:err}",
+            "}"
+        ],
+        "description": "快速写一个错误检查"
+    },
+    "defer statement": {
+        "prefix": "def",
+        "body": [
+            "defer func() {",
+            "\t$0",
+            "}()"
+        ],
+        "description": "使用 defer 匿名函数"
+    },
+}

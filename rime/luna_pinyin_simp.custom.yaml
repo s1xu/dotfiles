@@ -1,0 +1,80 @@
+patch:
+  # Lua 扩展
+  "engine/translators/@next": lua_translator@date_translator
+
+  # 候选词数量
+  "menu/page_size": 5  
+
+  # 输入方案状态显示
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中, 英 ]  # 中文模式显示"中"，英文模式显示"英"
+    - name: full_shape
+      reset: 0  # 默认半角
+      states: [ 半角, 全角 ]
+    - name: simplification
+      reset: 1  # 1 表示默认启用简化字
+      states: [ 繁, 简 ]
+    - name: ascii_punct
+      reset: 0  # 0 表示默认使用中文标点（。，）
+      states: [ 。，, ．， ]
+
+  # 简化字转换器配置
+  simplifier:
+    option_name: simplification
+    tips: none
+
+  # 按键绑定
+  key_binder:
+    bindings:
+      # 快速切换中英文标点
+      - { when: always, accept: Shift+space, toggle: ascii_punct }  # Shift+空格切换中英文标点
+      # 翻页按键（在有候选词时）
+      - { when: has_menu, accept: minus, send: Page_Up }      # - 键向前翻页
+      - { when: has_menu, accept: equal, send: Page_Down }    # = 键向后翻页
+      - { when: paging, accept: minus, send: Page_Up }        # 翻页模式下 - 键
+      - { when: paging, accept: equal, send: Page_Down }      # 翻页模式下 = 键
+      # Tab 键翻页
+      - { when: has_menu, accept: Tab, send: Page_Down }      # Tab 键向后翻页
+      - { when: has_menu, accept: Shift+Tab, send: Page_Up }  # Shift+Tab 向前翻页
+      - { when: paging, accept: Tab, send: Page_Down }        # 翻页模式下 Tab 键
+      - { when: paging, accept: Shift+Tab, send: Page_Up }    # 翻页模式下 Shift+Tab
+
+  # ASCII 模式切换
+  ascii_composer:
+    good_old_caps_lock: true  # Caps Lock 切换大写
+    switch_key:
+      Shift_L: commit_code    # 左 Shift：上屏原始输入
+      Shift_R: commit_code    # 右 Shift：上屏原始输入
+      Control_L: noop
+      Control_R: noop
+      Caps_Lock: clear        # Caps Lock：清除输入
+      Eisu_toggle: clear
+
+  # 识别器：自动识别英文输入
+  recognizer:
+    patterns:
+      email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+      uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+      url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+      punct: "^/([a-z]+|[0-9]0?)$"
+
+  # 标点符号：直接输入半角，不弹菜单
+  "punctuator/half_shape":
+    ",": "，"
+    ".": "。"
+    "/": "/"
+    "[": "["
+    "]": "]"
+    "#": "#"
+    "@": "@"
+    "$": "￥"
+    "%": "%"
+    "+": "+"
+    "*": "*"
+    "^": "^"
+    "~": "~"
+    "=": "="
+    "`": "```"
+    "\\": "、"

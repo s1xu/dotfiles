@@ -1,0 +1,380 @@
+{
+  // ====================== 通用设置 ======================
+  "window.systemColorTheme": "dark",
+  "window.titleBarStyle": "custom",
+  "window.commandCenter": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.enabled": false,
+  "update.mode": "none",
+  "telemetry.telemetryLevel": "off",
+
+  // ====================== 文件设置 ======================
+  "files.autoSave": "onFocusChange",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.localized": true,
+    "**/__pycache__": true,
+    "**/desktop.ini": true,
+    "**/.DS_Store": true
+  },
+  "files.associations": {
+    ".clang*": "yaml",
+    "CMakeLists.txt": "cmake",
+    "*.cmake": "cmake"
+  },
+
+  // ====================== 编辑器设置 ======================
+  "editor.fontFamily": "Monaco",
+  "editor.fontSize": 13.9,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  // "editor.lineHeight": 1.2,
+  // "editor.glyphMargin": false,
+
+  // 编辑器行为
+  "editor.scrollBeyondLastLine": false,
+  "editor.accessibilitySupport": "off",
+  "editor.smoothScrolling": true,
+  "editor.linkedEditing": true,
+  "editor.formatOnPaste": false,
+  "editor.wordWrap": "on",
+
+  // 光标设置
+  "editor.cursorStyle": "line",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.cursorBlinking": "phase",
+
+  // 渲染设置
+  "editor.renderWhitespace": "none",
+  "editor.renderLineHighlight": "none",
+  "editor.renderControlCharacters": false,
+  "editor.roundedSelection": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.showFoldingControls": "mouseover",
+  "editor.overviewRulerBorder": false,
+  "editor.lightbulb.enabled": "off",
+  "editor.links": false,
+
+  // 滚动条设置
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+
+  // 缩进和引导线
+  "editor.guides.indentation": false,
+  "editor.stickyScroll.enabled": false,
+
+  // Inlay Hints
+  "editor.inlayHints.enabled": "offUnlessPressed",
+
+  // Minimap
+  "editor.minimap.renderCharacters": false,
+
+  // ====================== 终端设置 ======================
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontWeightBold": "normal",
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.showLinkHover": true,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.stickyScroll.enabled": false,
+
+  // ====================== 工作区设置 ======================
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "workbench.editor.wrapTabs": false,
+  "workbench.editor.highlightModifiedTabs": false,
+  "workbench.tree.indent": 20,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.enableStickyScroll": false,
+  "workbench.secondarySideBar.showLabels": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.layoutControl.enabled": false,
+  "workbench.layoutControl.type": "toggles",
+  "workbench.activityBar.location": "bottom",
+  "breadcrumbs.enabled": false,
+
+  // ====================== 资源管理器设置 ======================
+  "explorer.confirmDelete": false,
+  "explorer.confirmPasteNative": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.decorations.colors": true,
+  "explorer.decorations.badges": true,
+  "explorer.compactFolders": false,
+  "explorer.autoReveal": false,
+
+  // ====================== Git 设置 ======================
+  "git.enabled": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.decorations.enabled": true,
+  "git.openRepositoryInParentFolders": "always",
+
+  // ====================== 其他设置 ======================
+  "problems.decorations.enabled": false,
+  "diffEditor.renderSideBySide": true,
+  "chat.viewSessions.orientation": "stacked",
+  "chat.disableAIFeatures": true,
+  "extensions.ignoreRecommendations": true,
+  "settingsSync.ignoredExtensions": [
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.js-debug-companion",
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+    "vadimcn.vscode-lldb"
+  ],
+
+  // ====================== 语言特定配置 ======================
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+
+  // ====================== Python 配置 ======================
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.createEnvironment.trigger": "off",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+  "autopep8.args": ["--max-line-length", "120"],
+
+  // ====================== 扩展配置 ======================
+  "liveServer.settings.donotShowInfoMsg": true,
+  "go.toolsManagement.autoUpdate": true,
+  "claudeCode.useTerminal": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+
+  // ====================== Vim 配置 ======================
+  // Vim 基础设置
+  "vim.vimrc.enable": false,
+  "vim.useCtrlKeys": true,
+  "vim.leader": " ",
+  "vim.easymotion": true,
+  "vim.scroll": 10,
+  "vim.smartRelativeLine": true,
+
+  // Vim 输入法自动切换
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
+
+  // Vim 快捷键处理
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-z>": false,
+    "<C-x>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-f>": false,
+    "<C-w>": false,
+    "<C-n>": false,
+    "<C-y>": false
+  },
+
+  // Vim Normal Mode 快捷键
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // 文件浏览器
+    { "before": ["<leader>", "e"], "commands": ["workbench.view.explorer","workbench.files.action.focusFilesExplorer"]},
+
+    // 重命名
+    { "before": ["<leader>", "r", "n"], "commands": ["editor.action.rename"] },
+
+    // 行首行尾快速移动
+    { "before": ["H"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["J"], "after": ["5", "j"] },
+    { "before": ["K"], "after": ["5", "k"] },
+
+    // 窗口和编辑器管理
+    { "before": ["<leader>", "c", "c"], "commands": ["workbench.action.closeWindow"] },
+    { "before": ["<leader>", "b", "w"], "commands": ["workbench.action.closeActiveEditor"] },
+    { "before": ["<leader>", "b", "o"], "commands": ["workbench.action.showAllEditors"] },
+    { "before": ["<leader>", "o"], "commands": ["workbench.action.openRecent"] },
+
+    // 文件查找
+    { "before": ["<leader>", "f", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "f", "s"], "commands": ["workbench.action.findInFiles"] },
+
+    // 关闭其他编辑器
+    { "before": ["<leader>", "c", "o"], "commands": ["workbench.action.closeOtherEditors"] },
+
+    // 错误导航
+    { "before": ["g", "e"], "commands": ["editor.action.marker.prev"] },
+
+    // 前进后退
+    { "before": ["<cmd-o>"], "commands": ["workbench.action.navigateBack"] },
+    { "before": ["<cmd-i>"], "commands": ["workbench.action.navigateForward"] },
+
+    // 禅模式
+    { "before": ["<leader>", "z"], "commands": ["workbench.action.toggleZenMode"] },
+
+    // 新建行
+    { "before": ["<CR>"], "after": ["o"] },
+
+    // 符号跳转
+    { "before": ["<leader>", "p"], "commands": ["workbench.action.gotoSymbol"] },
+
+    // 注释
+    { "before": ["g", "c", "c"], "commands": ["editor.action.commentLine"] },
+
+    // EasyMotion
+    { "before": ["s"], "after": ["<leader>", "<leader>", "s"] },
+
+    // ========== 分屏相关 ==========
+    // 分屏操作
+    { "before": ["<leader>", "\\"], "commands": ["workbench.action.splitEditorRight"] },
+    { "before": ["<leader>", "-"], "commands": ["workbench.action.splitEditorDown"] },
+    { "before": ["<leader>", "q"], "commands": ["workbench.action.closeActiveEditor"] },
+    { "before": ["<leader>", "c", "o"], "commands": ["workbench.action.closeOtherEditors"] },
+
+    // 分屏焦点切换
+    { "before": ["<leader>", "h"], "commands": ["workbench.action.focusLeftGroup"] },
+    { "before": ["<leader>", "j"], "commands": ["workbench.action.focusBelowGroup"] },
+    { "before": ["<leader>", "k"], "commands": ["workbench.action.focusAboveGroup"] },
+    { "before": ["<leader>", "l"], "commands": ["workbench.action.focusRightGroup"] },
+    { "before": ["<leader>", "w"], "commands": ["workbench.action.focusNextGroup"] },
+
+    // 分屏大小调整
+    { "before": ["<leader>", "w", "="], "commands": ["workbench.action.evenEditorWidths"] },
+    { "before": ["<leader>", "s", "z"], "commands": ["workbench.action.toggleMaximizeEditorGroup"] },
+    { "before": ["<leader>", "w", "+"], "commands": ["workbench.action.increaseViewSize"] },
+    { "before": ["<leader>", "w", "-"], "commands": ["workbench.action.decreaseViewSize"] },
+    { "before": ["<leader>", "w", ">"], "commands": ["workbench.action.increaseViewWidth"] },
+    { "before": ["<leader>", "w", "<"], "commands": ["workbench.action.decreaseViewWidth"] }
+
+    // 注释掉的配置（高度调整）
+    // { "before": ["<leader>", "w", "="], "commands": ["workbench.action.increaseViewHeight"] },
+    // { "before": ["<leader>", "w", "_"], "commands": ["workbench.action.decreaseViewHeight"] }
+  ],
+
+  // Vim Insert Mode 快捷键
+  "vim.insertModeKeyBindingsNonRecursive": [
+    { "before": ["j", "k"], "after": ["<Esc>"] },
+    { "before": ["k", "j"], "after": ["<Esc>"] }
+  ],
+
+  // Vim Visual Mode 快捷键
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // 行首行尾快速移动
+    { "before": ["H"], "after": ["^"] },
+    { "before": ["H"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+
+    // 移动行
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    // 粘贴后保持剪贴板
+    { "before": ["p"], "after": ["p", "g", "v", "y"] },
+
+    // 注释
+    { "before": ["g", "c"], "commands": ["editor.action.commentLine"] },
+
+    // 缩进
+    { "before": ["<"], "commands": ["editor.action.outdentLines"], "after": ["g", "v"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"], "after": ["g", "v"] }
+  ],
+
+  // ====================== Custom UI Style ======================
+  "custom-ui-style.electron": {
+    "frame": true,
+    "transparent": false,
+    "vibrancy": "under-window",
+    "backgroundColor": "#00000000",
+    "visualEffectState": "active",
+    "backgroundMaterial": "mica"
+  },
+  "custom-ui-style.font.sansSerif": "JetbrainsMono NF",
+  "custom-ui-style.stylesheet": {
+    ".monaco-workbench .part>.content": "font-size: 13.9px",
+    "body > .monaco-workbench": "background-color: #00000000 !important;",
+    ".monaco-workbench .part.titlebar": "background-color: transparent !important;",
+    ".monaco-workbench .part.titlebar .titlebar-center": "color: transparent !important;",
+    ".notification-toast": "box-shadow: none !important",
+    ".quick-input-widget.show-file-icons": "box-shadow: none !important",
+    ".quick-input-widget": "top: 25vh !important;",
+    ".quick-input-list .scrollbar": "display: none",
+    ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active.tab-border-top:not(:focus)>.tab-border-top-container, .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.selected.tab-border-top:not(:focus)>.tab-border-top-container": "display: none;",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
+    ".monaco-list-row.focused": "outline: none !important",
+    ".monaco-editor .scroll-decoration": "display: none",
+    ".monaco-editor .find-widget .monaco-sash.vertical": "display: none",
+    ".monaco-workbench .part>.title>.title-label": "padding-left: 2px",
+    ".monaco-workbench .pane-composite-part>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item .active-item-indicator, .monaco-workbench .pane-composite-part>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item .active-item-indicator::before": "display: none",
+    ".monaco-workbench .pane>.pane-body .welcome-view-content": "outline: none",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container>.monaco-scrollable-element .scrollbar": "display: none;",
+    ".monaco-scrollable-element>.scrollbar>.slider": "display: none;",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active.tab-border-bottom>.tab-border-bottom-container": "display: none !important;",
+    ".monaco-editor .native-edit-context:focus-visible": "color: transparent !important;"
+    // 注释掉的配置（tabbar drag）
+    // ".monaco-workbench .part.sidebar > .title,.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container": "app-region: drag;",
+    // ".monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab": "app-region: no-drag;"
+  },
+
+  // ====================== 颜色主题定制 ======================
+  "workbench.colorCustomizations": {
+    "focusBorder": "#00000000",
+    "welcomePage.background": "#00000000",
+    "walkThrough.embeddedEditorBackground": "#00000000",
+    "editorGroup.emptyBackground": "#00000000",
+    "editor.background": "#00000000",
+    "editorGroupHeader.tabsBackground": "#00000000",
+    "editorGroupHeader.noTabsBackground": "#00000000",
+    "editor.lineHighlightBorder": "#00000000",
+    "editor.lineHighlightBackground": "#00000000",
+    "editor.compositionBorder": "#00000000",
+    "editor.selectionHighlightBorder": "#00000000",
+    "editorGutter.background": "#00000000",
+    "titleBar.activeBackground": "#00000000",
+    "titleBar.inactiveBackground": "#00000000",
+    "sideBar.background": "#00000000",
+    "activityBar.background": "#00000000",
+    "panel.background": "#00000000",
+    "terminal.background": "#00000000",
+    "statusBar.background": "#00000000",
+    "statusBar.noFolderBackground": "#00000000",
+    "statusBar.debuggingBackground": "#00000000",
+    "statusBar.focusBorder": "#00000000",
+    "tab.activeBackground": "#00000000",
+    "tab.inactiveBackground": "#00000000",
+    "tab.unfocusedActiveBackground": "#00000000",
+    "tab.unfocusedInactiveBackground": "#00000000",
+    "minimap.background": "#00000000",
+    "editorGroup.border": "#00000000",
+    "sideBar.border": "#00000000",
+    "panel.border": "#00000000",
+    "activityBar.border": "#00000000",
+    "statusBar.border": "#00000000",
+    "tab.border": "#00000000",
+    "editorGroupHeader.tabsBorder": "#00000000",
+    "titleBar.border": "#00000000",
+    "sideBarActivityBarTop.border": "#00000000",
+    "scrollbar.shadow": "#00000000"
+  }
+}

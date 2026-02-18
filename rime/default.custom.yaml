@@ -1,0 +1,21 @@
+patch:
+  # 输入方案列表
+  schema_list:
+ #   - schema: luna_pinyin_simp  # 朙月拼音·简化字
+    - schema: double_pinyin_flypy  # 小鹤双拼
+
+  # 切换选项（移除 simplification，因为我们只用简体）
+  switcher:
+    caption: 〔方案选单〕
+    hotkeys:
+      - Control+grave  # Control + `
+    save_options:
+      - full_shape
+      - ascii_punct
+    fold_options: true
+    abbreviate_options: true
+    option_list_separator: '／'
+
+  # 默认使用简体
+  menu:
+    page_size: 5  # 候选词数量
