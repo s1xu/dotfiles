@@ -303,10 +303,10 @@
   "custom-ui-style.electron": {
     "frame": true,
     "transparent": false,
-    "vibrancy": "under-window",
     "backgroundColor": "#00000000",
-    "visualEffectState": "active",
-    "backgroundMaterial": "mica"
+    "vibrancy": "none", // fullscreen-ui, sidebar, under-window
+    "visualEffectState": "inactive", // active, inactive
+    "backgroundMaterial": "none" // acrylic, mica
   },
   "custom-ui-style.font.sansSerif": "JetbrainsMono NF",
   "custom-ui-style.stylesheet": {
