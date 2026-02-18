@@ -94,3 +94,113 @@ cd ~/dotfiles
 - `squirrel.custom.yaml`: 鼠须管外观配置
 - `double_pinyin_flypy.custom.yaml`: 小鹤双拼配置
 - `luna_pinyin_simp.custom.yaml`: 明月拼音简体配置
+
+## 🔙 恢复原配置
+
+如果需要恢复到安装 dotfiles 之前的配置，所有原配置文件都已自动备份。
+
+### 备份文件位置
+
+安装脚本会将原配置备份到以下位置：
+
+```
+~/.config/nvim.backup/                                          # Neovim 配置
+~/.config/ghostty/config.backup                                 # Ghostty 配置
+~/Library/Application Support/Code/User/settings.json.backup   # VSCode 设置
+~/Library/Application Support/Code/User/keybindings.json.backup # VSCode 快捷键
+~/Library/Application Support/Code/User/snippets.backup/       # VSCode 代码片段
+~/Library/Rime/*.yaml.backup                                    # Rime 配置文件
+```
+
+### 恢复步骤
+
+#### 1. 删除符号链接
+
+```bash
+# 删除 Neovim 符号链接
+rm ~/.config/nvim
+
+# 删除 Ghostty 符号链接
+rm ~/.config/ghostty/config
+
+# 删除 VSCode 符号链接
+rm ~/Library/Application\ Support/Code/User/settings.json
+rm ~/Library/Application\ Support/Code/User/keybindings.json
+rm ~/Library/Application\ Support/Code/User/snippets
+
+# 删除 Rime 符号链接
+rm ~/Library/Rime/default.custom.yaml
+rm ~/Library/Rime/double_pinyin_flypy.custom.yaml
+rm ~/Library/Rime/double_pinyin_flypy.schema.yaml
+rm ~/Library/Rime/luna_pinyin_simp.custom.yaml
+rm ~/Library/Rime/squirrel.custom.yaml
+```
+
+#### 2. 恢复备份文件
+
+```bash
+# 恢复 Neovim 配置
+mv ~/.config/nvim.backup ~/.config/nvim
+
+# 恢复 Ghostty 配置
+mv ~/.config/ghostty/config.backup ~/.config/ghostty/config
+
+# 恢复 VSCode 配置
+mv ~/Library/Application\ Support/Code/User/settings.json.backup \
+   ~/Library/Application\ Support/Code/User/settings.json
+mv ~/Library/Application\ Support/Code/User/keybindings.json.backup \
+   ~/Library/Application\ Support/Code/User/keybindings.json
+mv ~/Library/Application\ Support/Code/User/snippets.backup \
+   ~/Library/Application\ Support/Code/User/snippets
+
+# 恢复 Rime 配置
+mv ~/Library/Rime/default.custom.yaml.backup \
+   ~/Library/Rime/default.custom.yaml
+mv ~/Library/Rime/double_pinyin_flypy.custom.yaml.backup \
+   ~/Library/Rime/double_pinyin_flypy.custom.yaml
+mv ~/Library/Rime/double_pinyin_flypy.schema.yaml.backup \
+   ~/Library/Rime/double_pinyin_flypy.schema.yaml
+mv ~/Library/Rime/luna_pinyin_simp.custom.yaml.backup \
+   ~/Library/Rime/luna_pinyin_simp.custom.yaml
+mv ~/Library/Rime/squirrel.custom.yaml.backup \
+   ~/Library/Rime/squirrel.custom.yaml
+```
+
+#### 3. 重启应用
+
+```bash
+# 重启 VSCode
+# 重启 Ghostty
+# Rime 重新部署：Ctrl+Option+`
+```
+
+### 快速恢复（一键命令）
+
+如果需要快速恢复所有配置，可以复制以下命令：
+
+```bash
+# 删除所有符号链接并恢复备份
+rm ~/.config/nvim && mv ~/.config/nvim.backup ~/.config/nvim
+rm ~/.config/ghostty/config && mv ~/.config/ghostty/config.backup ~/.config/ghostty/config
+rm ~/Library/Application\ Support/Code/User/settings.json && \
+  mv ~/Library/Application\ Support/Code/User/settings.json.backup \
+     ~/Library/Application\ Support/Code/User/settings.json
+rm ~/Library/Application\ Support/Code/User/keybindings.json && \
+  mv ~/Library/Application\ Support/Code/User/keybindings.json.backup \
+     ~/Library/Application\ Support/Code/User/keybindings.json
+rm ~/Library/Application\ Support/Code/User/snippets && \
+  mv ~/Library/Application\ Support/Code/User/snippets.backup \
+     ~/Library/Application\ Support/Code/User/snippets
+
+# 恢复 Rime 配置
+cd ~/Library/Rime
+for file in *.yaml.backup; do
+  mv "$file" "${file%.backup}"
+done
+```
+
+### 注意事项
+
+- ⚠️ 恢复后，dotfiles 目录中的配置将不再生效
+- ⚠️ 如果要重新使用 dotfiles，需要再次运行 `./install.sh`
+- 💡 建议在确认 dotfiles 配置稳定后，再删除备份文件以节省空间
