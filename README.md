@@ -8,6 +8,7 @@
 - **Neovim**: 编辑器配置（基于 Lazy.nvim）
 - **VSCode**: 编辑器设置、快捷键、代码片段
 - **Rime**: 输入法配置（小鹤双拼 + 明月拼音）
+- **IdeaVim**: JetBrains IDE 的 Vim 模拟器配置
 
 ## 🚀 快速开始
 
@@ -54,6 +55,8 @@ dotfiles/
 │   ├── double_pinyin_flypy.custom.yaml
 │   ├── double_pinyin_flypy.schema.yaml
 │   └── luna_pinyin_simp.custom.yaml
+├── ideavim/          # IdeaVim 配置
+│   └── .ideavimrc
 ├── install.sh        # 安装脚本
 ├── .gitignore        # Git 忽略规则
 └── README.md         # 说明文档
@@ -95,6 +98,9 @@ cd ~/dotfiles
 - `double_pinyin_flypy.custom.yaml`: 小鹤双拼配置
 - `luna_pinyin_simp.custom.yaml`: 明月拼音简体配置
 
+### IdeaVim
+- `.ideavimrc`: JetBrains IDE 的 Vim 模拟器配置文件
+
 ## 🔙 恢复原配置
 
 如果需要恢复到安装 dotfiles 之前的配置，所有原配置文件都已自动备份。
@@ -110,6 +116,7 @@ cd ~/dotfiles
 ~/Library/Application Support/Code/User/keybindings.json.backup # VSCode 快捷键
 ~/Library/Application Support/Code/User/snippets.backup/       # VSCode 代码片段
 ~/Library/Rime/*.yaml.backup                                    # Rime 配置文件
+~/.ideavimrc.backup                                             # IdeaVim 配置
 ```
 
 ### 恢复步骤
@@ -134,6 +141,9 @@ rm ~/Library/Rime/double_pinyin_flypy.custom.yaml
 rm ~/Library/Rime/double_pinyin_flypy.schema.yaml
 rm ~/Library/Rime/luna_pinyin_simp.custom.yaml
 rm ~/Library/Rime/squirrel.custom.yaml
+
+# 删除 IdeaVim 符号链接
+rm ~/.ideavimrc
 ```
 
 #### 2. 恢复备份文件
@@ -164,6 +174,9 @@ mv ~/Library/Rime/luna_pinyin_simp.custom.yaml.backup \
    ~/Library/Rime/luna_pinyin_simp.custom.yaml
 mv ~/Library/Rime/squirrel.custom.yaml.backup \
    ~/Library/Rime/squirrel.custom.yaml
+
+# 恢复 IdeaVim 配置
+mv ~/.ideavimrc.backup ~/.ideavimrc
 ```
 
 #### 3. 重启应用
@@ -171,6 +184,7 @@ mv ~/Library/Rime/squirrel.custom.yaml.backup \
 ```bash
 # 重启 VSCode
 # 重启 Ghostty
+# 重启 JetBrains IDE
 # Rime 重新部署：Ctrl+Option+`
 ```
 
@@ -191,6 +205,7 @@ rm ~/Library/Application\ Support/Code/User/keybindings.json && \
 rm ~/Library/Application\ Support/Code/User/snippets && \
   mv ~/Library/Application\ Support/Code/User/snippets.backup \
      ~/Library/Application\ Support/Code/User/snippets
+rm ~/.ideavimrc && mv ~/.ideavimrc.backup ~/.ideavimrc
 
 # 恢复 Rime 配置
 cd ~/Library/Rime

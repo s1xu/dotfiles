@@ -1,0 +1,178 @@
+" Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+
+" 下列插件需要在 IDEA 中下载
+" ideaVim
+" IdeaVim-EasyMotion
+" IdeaVimExtension
+" which-key
+" CodeGlance Pro
+" TranslateAction
+
+" ---------- 基本配置 ----------
+let mapleader = " "
+
+set NERDTree
+set sneak
+set easymotion
+set scrolloff=15
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set surround                " 环绕 ysiw yss  cs ds
+set selectmode=key
+set commentary              " 注释 gcc
+set keymodel+=startsel,stopsel,stopselect " shift+方向键选择
+set number relativenumber
+set gdefault
+set notimeout
+
+set highlightedyank
+
+set visualbell
+set showmode
+
+nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>pv :NERDTreeFocus<CR>
+
+" ---------- 光标行为和快捷键配置 ----------
+" set keep-english-in-normal
+" set NERDTree
+" 设置常用快捷键映射：在普通模式下，按回车键增加一行
+nmap <CR> o<Esc>
+nmap <S-Enter> O<Esc>
+nnoremap <F1> :action QuickJavaDoc<CR>
+" nnoremap <S-C-J> :m +1<CR>
+" nnoremap <S-C-k> :m -2<CR>
+" inoremap <S-C-J> <Esc> :m +1<CR>gi
+" inoremap <S-C-k> <Esc> :m -2<CR>gi
+xnoremap <S-C-J> :m '>+1<cr>gv=gv
+xnoremap <S-C-k> :m '<-2<cr>gv=gv
+nmap <leader>kk <action>(Vcs.Push)
+" set timeoutlen=50
+" inoremap jj <Esc>
+" inoremap jk <Esc>
+" nnoremap [[ :action Back<CR>
+" noremap  ]] :action Forward<CR>
+nmap ge <action>(GotoNextError)
+nmap gt <action>(GotoTest)
+nmap ga <action>(GotoImplementation)
+nmap gs <action>(GotoSuperMethod)
+nmap gh <action>(ShowErrorDescription)
+nmap gu <action>(MethodUp)
+nmap gn <action>(MethodDown)
+nmap <leader>nl :nohlsearch<CR>
+nmap <leader>nd <action>(NewDir)
+nmap <leader>nc <action>(NewClass)
+nmap <leader>nf <action>(NewFile)
+
+" ---------- Easymotion 插件配置 ----------
+" 在普通模式输入s后输入要跳转到单词首字母(或多输入几个字母)
+" nmap s <Plug>(easymotion-bd-n)
+nmap s <Plug>(easymotion-s)
+
+" ---------- 代码重构和调试快捷键 ----------
+" 提取方法、常量、字段、变量的快捷键映射
+vmap <leader>em <action>(ExtractMethod)
+vmap <leader>ec <action>(IntroduceConstant)
+vmap <leader>ef <action>(IntroduceField)
+vmap <leader>ev <action>(IntroduceVariable)
+nmap <leader>ei <action>(Inline)
+" 切换断点、调试等操作
+nmap <leader>dp <Action>(ToggleLineBreakpoint)
+nmap <leader>db <Action>(Debug)
+nmap <leader>sd <Action>(Stop)
+nmap <leader>rc :action RunClass<CR>
+nmap <leader>rr <action>(Rerun)
+nmap <leader>rt <action>(RerunTests)
+nmap <leader>rn <action>(RenameElement)
+nmap <leader>ru <action>(Run)
+nmap <leader>fs <action>(FileStructurePopup)
+nmap <leader>sb <action>(ShowBookmarks)
+nmap <leader>sp <action>(ParameterInfo)
+nmap <leader>st <action>(Stop)
+
+" ---------- 标签页、书签和窗口管理 ----------
+nnoremap H ^
+nnoremap L $
+vmap H OH^
+vmap L OL$
+" nmap K <action>(NextTab)
+" nmap J <action>(PreviousTab)
+nmap J 5j
+nmap K 5k
+vmap J 5j
+vmap K 5k
+nnoremap <leader>me :action ToggleFullScreen<CR>
+nnoremap <leader>o :action RecentProjectListGroup<CR>
+nmap ma <action>(ToggleBookmark)
+nmap rma <action>(EditBookmark)
+nmap tm <action>(ActivateBookmarksToolWindow)
+nmap <leader>ca <action>(CloseAllEditors)
+nmap <leader>cd :action CloseEditor<CR>
+nmap <leader>cc <action>(CloseProject)
+nmap <leader>cr <action>(CloseAllToTheRight)
+nmap <leader>co :action CloseAllEditorsButActive<CR>
+" nmap <leader>e <action>(ActivateProjectToolWindow)
+nmap <leader>ls <action>(ActivateStructureToolWindow)
+" ---------- 文件和项目管理快捷键 ----------
+" 打开文件和项目视图，跳转到文件
+nmap <leader>ff <action>(GotoFile)
+nmap <leader>fl <action>(SelectInProjectView)
+nmap <leader>ft <action>(FindInPath)
+nmap <leader>fe <action>(RecentFiles)
+nmap <leader>fc <action>(GotoAction)
+" 重新格式化代码
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+
+" ---------- Git ----------
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+nmap <leader>gc :action GenerateConstructor<CR>
+nmap <leader>gg :action GenerateGetter<CR>
+nmap <leader>gs :action GenerateSetter<CR>
+nmap <leader>ga <action>(GenerateGetterAndSetter)
+nmap <leader>ge <action>(GenerateEquals)
+nmap <leader>gt <action>(Actions.ActionsPlugin.GenerateToString)
+nmap <leader>hs <action>(Vcs.ShowTabbedFileHistory)
+nmap <leader>gd <action>(Annotate)
+" 快速查找文件和跳转到函数
+nmap <leader>i f(a
+
+" ---------- NERDTree 配置 ----------
+" 打开/关闭 NERDTree 文件资源管理器
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" 定位当前文件在 NERDTree 中的位置
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" 通过 NERDTree 切换文件
+nnoremap <leader>nn :NERDTreeFocus<CR>
+nmap <C-n> :NERDTree<CR>
+
+" ---------- 其他快捷键 ----------
+" 快速翻译
+nmap <leader>t <action>($EditorTranslateAction)
+vmap <leader>t <action>($EditorTranslateAction)
+nmap <leader>zo <action>(ExpandAllRegions)
+nmap <leader>zc <action>(CollapseAllRegions)
+
+" nmap <leader>wml <action>(MoveTabRight)                         " 向右拆分标签页
+" nmap <leader>wmd <action>(MoveTabDown)                          " 向下拆分标签页
+" nmap <leader>wmo <action>(MoveEditorToOppositeTabGroup)         " 在另一边打开（前提是有另一边的分割窗口）
+" nmap <leader>wmc <action>(SplitVertically)                      " 向右复制标签页
+" nmap <leader>wa <action>(UnsplitAll)                            " 取消所有分割窗口
+" nmap <leader>wc <c-w>c                                          " 关闭当前窗口或分割窗格
+" nmap <leader>wu <action>(Unsplit)                               " 取消拆分当前分割窗口
+" nmap <leader>j <c-w>j                                           " wl: MoveToRight-跳转到右边的窗口(<c-w>l)
+" nmap <leader>h <c-w>h                                           " wh: MoveToLeft-跳转到左边的窗口(<c-w>h)
+" nmap <leader>k <c-w>k                                           " wk: MoveToUp-跳转到上边的窗口(<c-w>k)
+" nmap <leader>l <c-w>l                                           " wj: MoveToDown-跳转到下边的窗口(<c-w>j)
+
+" 复制、粘贴操作简化
+vmap <leader>dd "+d
+nmap <leader>y "+yy
+vmap <leader>y "+y
+nmap <leader>p "+p
+nmap <leader>P "+P

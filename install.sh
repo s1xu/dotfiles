@@ -66,12 +66,18 @@ for file in "$DOTFILE_DIR/rime"/*.yaml; do
     fi
 done
 
+# ====================== 5. IdeaVim 配置 ======================
+echo "📦 安装 IdeaVim 配置..."
+backup_file ~/.ideavimrc
+ln -sf "$DOTFILE_DIR/ideavim/.ideavimrc" ~/.ideavimrc
+
 echo ""
 echo "✨ 安装完成！"
 echo ""
 echo "📝 后续步骤："
 echo "  1. 重启相关应用以加载新配置"
 echo "  2. Rime 需要重新部署（Ctrl+Option+\`）"
+echo "  3. 重启 JetBrains IDE 以加载 IdeaVim 配置"
 echo ""
 echo "💡 提示："
 echo "  - 原配置文件已备份为 .backup 后缀"
