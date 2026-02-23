@@ -87,7 +87,7 @@
   "terminal.integrated.stickyScroll.enabled": false,
 
   // ====================== 工作区设置 ======================
-  "workbench.startupEditor": "none",
+  "workbench.startupEditor": "welcomePage",
   "workbench.tips.enabled": false,
   "workbench.editor.wrapTabs": false,
   "workbench.editor.highlightModifiedTabs": false,
