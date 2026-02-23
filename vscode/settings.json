@@ -3,6 +3,7 @@
   "window.systemColorTheme": "dark",
   "window.titleBarStyle": "custom",
   "window.commandCenter": false,
+  "window.openFoldersInNewWindow": "on",
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.enabled": false,
   "update.mode": "none",
