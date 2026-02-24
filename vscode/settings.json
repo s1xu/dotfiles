@@ -380,6 +380,14 @@
     "scrollbar.shadow": "#1a1d23",
     "quickInput.background": "#1a1d23",
     "quickInput.foreground": "#cccccc",
-    "quickInputList.focusBackground": "#2a2d35"
+    "quickInputList.focusBackground": "#2a2d35",
+    "editorWidget.background": "#1a1d23",
+    "editorWidget.border": "#1a1d23",
+    "editorWidget.foreground": "#cccccc",
+    "editorWidget.resizeBorder": "#1a1d23",
+    "input.background": "#1a1d23",
+    "input.border": "#1a1d23",
+    "inputOption.activeBackground": "#2a2d35",
+    "inputOption.activeBorder": "#1a1d23"
   }
 }
