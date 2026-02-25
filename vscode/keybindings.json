@@ -101,7 +101,8 @@
     { "key": "cmd+l", "command": "workbench.action.gotoLine" },
 
     // 文件内查找/替换
-    { "key": "cmd+f", "command": "actions.find" },
+    { "key": "cmd+f", "command": "actions.find", "when": "editorFocus" },
+    { "key": "cmd+f", "command": "workbench.action.terminal.focusFind", "when": "terminalFocus" },
     { "key": "cmd+r", "command": "editor.action.startFindReplaceAction", "when": "editorFocus || editorIsOpen" },
 
     // 全局查找/替换 (IDEA: Cmd+Shift+F / Cmd+Shift+R)
