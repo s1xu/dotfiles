@@ -5,6 +5,7 @@
   "window.commandCenter": false,
   "window.title": "${dirty}${activeEditorShort}",
   "window.openFoldersInNewWindow": "on",
+  "window.confirmBeforeClose": "always",
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.enabled": false,
   "update.mode": "none",
