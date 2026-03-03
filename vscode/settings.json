@@ -6,6 +6,7 @@
   "window.title": "${dirty}${activeEditorShort}",
   "window.openFoldersInNewWindow": "on",
   "window.confirmBeforeClose": "always",
+  "window.newWindowDimensions": "maximized",
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.enabled": false,
   "update.mode": "none",
