@@ -8,6 +8,7 @@
 - **Neovim**: 编辑器配置（基于 Lazy.nvim）
 - **VSCode**: 编辑器设置、快捷键、代码片段
 - **Rime**: 输入法配置（小鹤双拼 + 明月拼音）
+- **Tmux**: 终端复用器配置
 - **IdeaVim**: JetBrains IDE 的 Vim 模拟器配置
 
 ## 🚀 快速开始
@@ -55,6 +56,8 @@ dotfiles/
 │   ├── double_pinyin_flypy.custom.yaml
 │   ├── double_pinyin_flypy.schema.yaml
 │   └── luna_pinyin_simp.custom.yaml
+├── tmux/             # Tmux 配置
+│   └── tmux.conf
 ├── ideavim/          # IdeaVim 配置
 │   └── .ideavimrc
 ├── install.sh        # 安装脚本
@@ -98,6 +101,9 @@ cd ~/dotfiles
 - `double_pinyin_flypy.custom.yaml`: 小鹤双拼配置
 - `luna_pinyin_simp.custom.yaml`: 明月拼音简体配置
 
+### Tmux
+- `tmux.conf`: 终端复用器配置（快捷键、鼠标支持、颜色等）
+
 ### IdeaVim
 - `.ideavimrc`: JetBrains IDE 的 Vim 模拟器配置文件
 
@@ -112,6 +118,7 @@ cd ~/dotfiles
 ```
 ~/.config/nvim.backup/                                          # Neovim 配置
 ~/.config/ghostty/config.backup                                 # Ghostty 配置
+~/.config/tmux/tmux.conf.backup                                 # Tmux 配置
 ~/Library/Application Support/Code/User/settings.json.backup   # VSCode 设置
 ~/Library/Application Support/Code/User/keybindings.json.backup # VSCode 快捷键
 ~/Library/Application Support/Code/User/snippets.backup/       # VSCode 代码片段
@@ -129,6 +136,9 @@ rm ~/.config/nvim
 
 # 删除 Ghostty 符号链接
 rm ~/.config/ghostty/config
+
+# 删除 Tmux 符号链接
+rm ~/.config/tmux/tmux.conf
 
 # 删除 VSCode 符号链接
 rm ~/Library/Application\ Support/Code/User/settings.json
@@ -154,6 +164,9 @@ mv ~/.config/nvim.backup ~/.config/nvim
 
 # 恢复 Ghostty 配置
 mv ~/.config/ghostty/config.backup ~/.config/ghostty/config
+
+# 恢复 Tmux 配置
+mv ~/.config/tmux/tmux.conf.backup ~/.config/tmux/tmux.conf
 
 # 恢复 VSCode 配置
 mv ~/Library/Application\ Support/Code/User/settings.json.backup \
@@ -196,6 +209,7 @@ mv ~/.ideavimrc.backup ~/.ideavimrc
 # 删除所有符号链接并恢复备份
 rm ~/.config/nvim && mv ~/.config/nvim.backup ~/.config/nvim
 rm ~/.config/ghostty/config && mv ~/.config/ghostty/config.backup ~/.config/ghostty/config
+rm ~/.config/tmux/tmux.conf && mv ~/.config/tmux/tmux.conf.backup ~/.config/tmux/tmux.conf
 rm ~/Library/Application\ Support/Code/User/settings.json && \
   mv ~/Library/Application\ Support/Code/User/settings.json.backup \
      ~/Library/Application\ Support/Code/User/settings.json

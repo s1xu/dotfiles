@@ -66,7 +66,13 @@ for file in "$DOTFILE_DIR/rime"/*.yaml; do
     fi
 done
 
-# ====================== 5. IdeaVim 配置 ======================
+# ====================== 5. Tmux 配置 ======================
+echo "📦 安装 Tmux 配置..."
+mkdir -p ~/.config/tmux
+backup_file ~/.config/tmux/tmux.conf
+ln -sf "$DOTFILE_DIR/tmux/tmux.conf" ~/.config/tmux/tmux.conf
+
+# ====================== 6. IdeaVim 配置 ======================
 echo "📦 安装 IdeaVim 配置..."
 backup_file ~/.ideavimrc
 ln -sf "$DOTFILE_DIR/ideavim/.ideavimrc" ~/.ideavimrc
