@@ -45,5 +45,17 @@ keybind = cmd+s>k=goto_split:top
 keybind = cmd+s>h=goto_split:left
 keybind = cmd+s>l=goto_split:right
 
+# resize splits (prefix + H/J/K/L)
+keybind = cmd+s>shift+h=resize_split:left,10
+keybind = cmd+s>shift+j=resize_split:down,10
+keybind = cmd+s>shift+k=resize_split:up,10
+keybind = cmd+s>shift+l=resize_split:right,10
+
+# continuous resize (hold keys)
+keybind = ctrl+shift+h=resize_split:left,6
+keybind = ctrl+shift+j=resize_split:down,6
+keybind = ctrl+shift+k=resize_split:up,6
+keybind = ctrl+shift+l=resize_split:right,6
+
 keybind = cmd+s>z=toggle_split_zoom
 keybind = cmd+s>e=equalize_splits
