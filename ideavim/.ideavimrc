@@ -107,7 +107,7 @@ vmap K 5k
 nnoremap <leader>me :action ToggleFullScreen<CR>
 nnoremap <leader>o :action RecentProjectListGroup<CR>
 nmap ma <action>(ToggleBookmark)
-nmap rma <action>(EditBookmark)
+nmap <leader>eb <action>(EditBookmark)
 nmap tm <action>(ActivateBookmarksToolWindow)
 nmap <leader>ca <action>(CloseAllEditors)
 nmap <leader>cd :action CloseEditor<CR>
