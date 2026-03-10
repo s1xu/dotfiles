@@ -18,8 +18,8 @@ macos-titlebar-style = transparent
 macos-icon = custom
 confirm-close-surface = true
 
-window-height = 27
-window-width = 105
+# window-height = 27
+# window-width = 105
 window-save-state = always
 window-padding-balance = true
 window-padding-x = 18
