@@ -25,6 +25,7 @@ window-padding-balance = true
 window-padding-x = 18
 window-padding-y = 18
 window-inherit-working-directory = false
+tab-inherit-working-directory = false
 working-directory = home
 
 #keybindings
