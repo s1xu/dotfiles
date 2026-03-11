@@ -18,6 +18,9 @@ macos-titlebar-style = transparent
 macos-icon = custom
 confirm-close-surface = true
 
+# 禁止复制自动滚动到底部
+scroll-to-bottom = no-keystroke
+
 # window-height = 27
 # window-width = 105
 window-save-state = always
