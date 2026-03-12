@@ -1,26 +1,40 @@
+#
+# Ghostty Config
+#
+
+# Base
 keybind = global:opt+`=toggle_visibility
 macos-option-as-alt = false
 
+# Font & Theme
 font-family = "Monaco"
-#font-family = "JetBrains Maple Mono"
+# font-family = "JetBrains Maple Mono"
 theme = "Dracula"
 
 font-size = 13.3
+
+# Background (Optional)
 # background-opacity = 0.5
 # background-blur-radius = 50
+
+# Cursor
 cursor-style = block
 shell-integration-features = no-cursor
 cursor-style-blink = false
-adjust-cell-height= 35%
+adjust-cell-height = 35%
+
+# macOS
 # title = "👻"
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = transparent
 macos-icon = custom
 confirm-close-surface = true
 
+# Behavior
 # 禁止复制自动滚动到底部
 scroll-to-bottom = no-keystroke
 
+# Window
 # window-height = 27
 # window-width = 105
 window-save-state = always
@@ -31,35 +45,37 @@ window-inherit-working-directory = false
 tab-inherit-working-directory = false
 working-directory = home
 
-#keybindings
+# Key Bindings
 keybind = cmd+s>r=reload_config
 keybind = cmd+s>x=close_surface
 
-# tabs
+# Tabs
 keybind = cmd+s>c=new_tab
 keybind = cmd+s>comma=move_tab:-1
 keybind = cmd+s>period=move_tab:1
 
-# split 
+# Split
 keybind = cmd+s>\=new_split:right
 keybind = cmd+s>-=new_split:down
 
+# Navigate Splits
 keybind = cmd+s>j=goto_split:bottom
 keybind = cmd+s>k=goto_split:top
 keybind = cmd+s>h=goto_split:left
 keybind = cmd+s>l=goto_split:right
 
-# resize splits (prefix + H/J/K/L)
+# Resize Splits (Prefix + H/J/K/L)
 keybind = cmd+s>shift+h=resize_split:left,10
 keybind = cmd+s>shift+j=resize_split:down,10
 keybind = cmd+s>shift+k=resize_split:up,10
 keybind = cmd+s>shift+l=resize_split:right,10
 
-# continuous resize (hold keys)
+# Continuous Resize (Hold Keys)
 keybind = ctrl+shift+h=resize_split:left,6
 keybind = ctrl+shift+j=resize_split:down,6
 keybind = ctrl+shift+k=resize_split:up,6
 keybind = ctrl+shift+l=resize_split:right,6
 
+# Layout
 keybind = cmd+s>z=toggle_split_zoom
 keybind = cmd+s>e=equalize_splits
