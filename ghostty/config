@@ -3,19 +3,23 @@
 #
 
 # Base
-keybind = global:opt+`=toggle_visibility
 macos-option-as-alt = false
+
+keybind = global:opt+`=toggle_quick_terminal
+quick-terminal-position = center
+quick-terminal-animation-duration = 0.1
+quick-terminal-autohide = false
+macos-hidden = always
 
 # Font & Theme
 font-family = "Monaco"
-# font-family = "JetBrains Maple Mono"
 theme = "Dracula"
 
 font-size = 13.3
 
-# Background (Optional)
-# background-opacity = 0.5
-# background-blur-radius = 50
+# Background
+background-opacity = 0.8
+background-blur = 50
 
 # Cursor
 cursor-style = block
