@@ -3,7 +3,7 @@
   "window.systemColorTheme": "dark",
   "window.titleBarStyle": "custom",
   "window.commandCenter": false,
-  "window.title": "${dirty}${activeEditorShort}",
+  "window.title": "${dirty}${activeEditorMedium}",
   "window.openFoldersInNewWindow": "on",
   "window.confirmBeforeClose": "always",
   "window.newWindowDimensions": "maximized",
@@ -113,7 +113,7 @@
   "explorer.decorations.colors": true,
   "explorer.decorations.badges": true,
   "explorer.compactFolders": false,
-  "explorer.autoReveal": false,
+  "explorer.autoReveal": "focusNoScroll",
 
   // ====================== Git 设置 ======================
   "git.enabled": true,
