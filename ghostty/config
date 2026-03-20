@@ -10,6 +10,7 @@ quick-terminal-position = center
 quick-terminal-animation-duration = 0.1
 quick-terminal-autohide = false
 macos-hidden = always
+macos-option-as-alt = true
 
 # Font & Theme
 font-family = "Monaco"
