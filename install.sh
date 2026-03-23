@@ -77,8 +77,12 @@ echo "📦 安装 IdeaVim 配置..."
 backup_file ~/.ideavimrc
 ln -sf "$DOTFILE_DIR/ideavim/.ideavimrc" ~/.ideavimrc
 
+# ====================== 7. Zsh 配置 ======================
+echo "📦 安装 Zsh 配置..."
+backup_file ~/.zshrc
+ln -sf "$DOTFILE_DIR/zsh/.zshrc" ~/.zshrc
+
 echo ""
-echo "✨ 安装完成！"
 echo ""
 echo "📝 后续步骤："
 echo "  1. 重启相关应用以加载新配置"
