@@ -7,7 +7,7 @@ set -e
 
 DOTFILE_DIR="$HOME/dotfiles"
 
-# ====================== 备份函数 ======================
+# --- 备份函数 ---
 backup_file() {
     local file=$1
     if [ -f "$file" ] && [ ! -L "$file" ]; then
@@ -24,65 +24,94 @@ backup_dir() {
     fi
 }
 
-echo "🚀 开始安装 dotfiles..."
+# --- 安装函数 ---
+install_ghostty() {
+    echo "📦 安装 Ghostty 配置..."
+    mkdir -p ~/.config/ghostty
+    backup_file ~/.config/ghostty/config
+    ln -sf "$DOTFILE_DIR/ghostty/config" ~/.config/ghostty/config
+}
 
-# ====================== 1. Ghostty 配置 ======================
-echo "📦 安装 Ghostty 配置..."
-mkdir -p ~/.config/ghostty
-backup_file ~/.config/ghostty/config
-ln -sf "$DOTFILE_DIR/ghostty/config" ~/.config/ghostty/config
+install_neovim() {
+    echo "📦 安装 Neovim 配置..."
+    backup_dir ~/.config/nvim
+    ln -sf "$DOTFILE_DIR/nvim" ~/.config/nvim
+}
 
-# ====================== 2. Neovim 配置 ======================
-echo "📦 安装 Neovim 配置..."
-backup_dir ~/.config/nvim
-ln -sf "$DOTFILE_DIR/nvim" ~/.config/nvim
+install_vscode() {
+    echo "📦 安装 VSCode 配置..."
+    local vscode_dir="$HOME/Library/Application Support/Code/User"
+    backup_file "$vscode_dir/settings.json"
+    backup_file "$vscode_dir/keybindings.json"
+    ln -sf "$DOTFILE_DIR/vscode/settings.json" "$vscode_dir/settings.json"
+    ln -sf "$DOTFILE_DIR/vscode/keybindings.json" "$vscode_dir/keybindings.json"
+    if [ -d "$DOTFILE_DIR/vscode/snippets" ]; then
+        backup_dir "$vscode_dir/snippets"
+        rm -rf "$vscode_dir/snippets"
+        ln -sf "$DOTFILE_DIR/vscode/snippets" "$vscode_dir/snippets"
+    fi
+}
 
-# ====================== 3. VSCode 配置 ======================
-echo "📦 安装 VSCode 配置..."
-VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+install_rime() {
+    echo "📦 安装 Rime 配置..."
+    for file in "$DOTFILE_DIR/rime"/*.yaml; do
+        if [ -f "$file" ]; then
+            filename=$(basename "$file")
+            backup_file ~/Library/Rime/"$filename"
+            ln -sf "$file" ~/Library/Rime/"$filename"
+        fi
+    done
+}
 
-# 备份 VSCode 配置文件
-backup_file "$VSCODE_USER_DIR/settings.json"
-backup_file "$VSCODE_USER_DIR/keybindings.json"
+install_tmux() {
+    echo "📦 安装 Tmux 配置..."
+    mkdir -p ~/.config/tmux
+    backup_file ~/.config/tmux/tmux.conf
+    ln -sf "$DOTFILE_DIR/tmux/tmux.conf" ~/.config/tmux/tmux.conf
+}
 
-# 创建符号链接
-ln -sf "$DOTFILE_DIR/vscode/settings.json" "$VSCODE_USER_DIR/settings.json"
-ln -sf "$DOTFILE_DIR/vscode/keybindings.json" "$VSCODE_USER_DIR/keybindings.json"
+install_ideavim() {
+    echo "📦 安装 IdeaVim 配置..."
+    backup_file ~/.ideavimrc
+    ln -sf "$DOTFILE_DIR/ideavim/.ideavimrc" ~/.ideavimrc
+}
 
-# 备份并链接 snippets 目录
-if [ -d "$DOTFILE_DIR/vscode/snippets" ]; then
-    backup_dir "$VSCODE_USER_DIR/snippets"
-    rm -rf "$VSCODE_USER_DIR/snippets"
-    ln -sf "$DOTFILE_DIR/vscode/snippets" "$VSCODE_USER_DIR/snippets"
+install_zsh() {
+    echo "📦 安装 Zsh 配置..."
+    backup_file ~/.zshrc
+    ln -sf "$DOTFILE_DIR/zsh/.zshrc" ~/.zshrc
+}
+
+# --- 模块列表 ---
+modules=("Ghostty" "Neovim" "VSCode" "Rime" "Tmux" "IdeaVim" "Zsh")
+installers=(install_ghostty install_neovim install_vscode install_rime install_tmux install_ideavim install_zsh)
+
+# --- 交互式菜单 ---
+echo "🚀 Dotfiles 安装脚本"
+echo ""
+echo "请选择要安装的配置（空格分隔，回车全部安装）："
+for i in "${!modules[@]}"; do
+    echo "  $((i+1))) ${modules[$i]}"
+done
+echo ""
+read -rp "> " choices
+
+if [ -z "$choices" ]; then
+    selected=("${!modules[@]}")
+else
+    selected=()
+    for num in $choices; do
+        selected+=($((num-1)))
+    done
 fi
 
-# ====================== 4. Rime 配置 ======================
-echo "📦 安装 Rime 配置..."
-for file in "$DOTFILE_DIR/rime"/*.yaml; do
-    if [ -f "$file" ]; then
-        filename=$(basename "$file")
-        backup_file ~/Library/Rime/"$filename"
-        ln -sf "$file" ~/Library/Rime/"$filename"
-    fi
+echo ""
+for i in "${selected[@]}"; do
+    ${installers[$i]}
 done
 
-# ====================== 5. Tmux 配置 ======================
-echo "📦 安装 Tmux 配置..."
-mkdir -p ~/.config/tmux
-backup_file ~/.config/tmux/tmux.conf
-ln -sf "$DOTFILE_DIR/tmux/tmux.conf" ~/.config/tmux/tmux.conf
-
-# ====================== 6. IdeaVim 配置 ======================
-echo "📦 安装 IdeaVim 配置..."
-backup_file ~/.ideavimrc
-ln -sf "$DOTFILE_DIR/ideavim/.ideavimrc" ~/.ideavimrc
-
-# ====================== 7. Zsh 配置 ======================
-echo "📦 安装 Zsh 配置..."
-backup_file ~/.zshrc
-ln -sf "$DOTFILE_DIR/zsh/.zshrc" ~/.zshrc
-
 echo ""
+echo "✨ 安装完成！"
 echo ""
 echo "📝 后续步骤："
 echo "  1. 重启相关应用以加载新配置"
