@@ -89,20 +89,25 @@ installers=(install_ghostty install_neovim install_vscode install_rime install_t
 # --- 交互式菜单 ---
 echo "🚀 Dotfiles 安装脚本"
 echo ""
-echo "请选择要安装的配置（空格分隔，回车全部安装）："
-for i in "${!modules[@]}"; do
-    echo "  $((i+1))) ${modules[$i]}"
-done
-echo ""
-read -rp "> " choices
 
-if [ -z "$choices" ]; then
-    selected=("${!modules[@]}")
-else
-    selected=()
-    for num in $choices; do
-        selected+=($((num-1)))
+if [ -t 0 ]; then
+    echo "请选择要安装的配置（空格分隔，回车全部安装）："
+    for i in "${!modules[@]}"; do
+        echo "  $((i+1))) ${modules[$i]}"
     done
+    echo ""
+    read -rp "> " choices
+    if [ -z "$choices" ]; then
+        selected=("${!modules[@]}")
+    else
+        selected=()
+        for num in $choices; do
+            selected+=($((num-1)))
+        done
+    fi
+else
+    echo "检测到非交互模式，安装全部配置..."
+    selected=("${!modules[@]}")
 fi
 
 echo ""
