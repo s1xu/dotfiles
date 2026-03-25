@@ -102,6 +102,10 @@ if [ -t 0 ]; then
     else
         selected=()
         for num in $choices; do
+            if ! [[ "$num" =~ ^[0-9]+$ ]] || [ "$num" -lt 1 ] || [ "$num" -gt ${#modules[@]} ]; then
+                echo "❌ 无效选项: $num（请输入 1-${#modules[@]}）"
+                exit 1
+            fi
             selected+=($((num-1)))
         done
     fi
