@@ -9,7 +9,7 @@ keybind = cmd+e=unbind
 keybind = global:opt+`=toggle_quick_terminal
 quick-terminal-position = center
 quick-terminal-animation-duration = 0.1
-quick-terminal-autohide = false
+quick-terminal-autohide = true
 macos-hidden = never
 macos-option-as-alt = true
 
@@ -17,10 +17,10 @@ macos-option-as-alt = true
 font-family = "Monaco"
 theme = "Dracula"
 
-font-size = 13.3
+font-size = 13.5
 
 # Background
-background-opacity = 0.8
+background-opacity = 0.88
 background-blur = 50
 
 # Cursor
@@ -51,6 +51,7 @@ window-padding-y = 18
 window-inherit-working-directory = false
 tab-inherit-working-directory = false
 working-directory = home
+window-padding-color = extend
 
 # Key Bindings
 keybind = cmd+s>r=reload_config
