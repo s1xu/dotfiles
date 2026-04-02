@@ -255,6 +255,13 @@
     { "key": "cmd+3", "command": "workbench.action.terminal.toggleTerminal", "when": "terminal.active" },
     { "key": "cmd+3", "command": "workbench.action.terminal.focus", "when": "terminalProcessSupported && !terminalFocus" },
 
+    // Debug Console (Cmd+2)
+    { "key": "cmd+2", "command": "workbench.debug.action.focusRepl" },
+
+    // 切换终端实例 (Cmd+4)
+    { "key": "cmd+4", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
+    { "key": "cmd+4", "command": "workbench.action.terminal.focus", "when": "!terminalFocus" },
+
     // 调试视图 (IDEA: Cmd+5)
     { "key": "cmd+5", "command": "workbench.view.debug" },
     { "key": "shift+cmd+f8", "command": "workbench.view.debug" },
@@ -361,6 +368,10 @@
     {
         "key": "cmd+4",
         "command": "-workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "cmd+2",
+        "command": "-workbench.action.focusSecondEditorGroup"
     },
 
     // ==================== 资源管理器 (Explorer) ====================
