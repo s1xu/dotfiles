@@ -202,6 +202,7 @@
 
     // 断点 (IDEA: Cmd+F8)
     { "key": "cmd+f8", "command": "editor.debug.action.toggleBreakpoint", "when": "debuggersAvailable && editorTextFocus" },
+    { "key": "shift+cmd+f9", "command": "workbench.debug.viewlet.action.toggleBreakpointsActivatedAction" },
 
     // 计算表达式 (IDEA: Alt+F8)
     { "key": "alt+f8", "command": "editor.debug.action.selectionToRepl", "when": "debuggersAvailable && editorTextFocus && editorHasSelection" },
