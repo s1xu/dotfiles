@@ -385,9 +385,9 @@
     // 重命名
     { "key": "r", "command": "renameFile", "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !editorTextFocus" },
 
-    // 删除
-    { "key": "d", "command": "deleteFile", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus && !editorTextFocus" },
-    { "key": "shift+d", "command": "moveFileToTrash", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus && !editorTextFocus" },
+    // 删除 (d: 移到废纸篓, Shift+D: 永久删除)
+    { "key": "d", "command": "moveFileToTrash", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus && !editorTextFocus" },
+    { "key": "shift+d", "command": "deleteFile", "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus && !editorTextFocus" },
 
     // 复制文件
     { "key": "y", "command": "filesExplorer.copy", "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !editorTextFocus" },
