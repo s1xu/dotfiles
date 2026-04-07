@@ -309,6 +309,7 @@
     { "key": "cmd+,", "command": "workbench.action.openGlobalSettings" },
     { "key": "cmd+;", "command": "workbench.action.tasks.configureTaskRunner" },
     { "key": "ctrl+`", "command": "workbench.action.selectTheme" },
+    { "key": "ctrl+l", "command": "workbench.action.editor.changeLanguageMode", "when": "editorTextFocus" },
     { "key": "cmd+f1", "command": "workbench.action.showErrorsWarnings", "when": "editorTextFocus" },
 
     // ==================== 禁用冲突的默认快捷键 ====================
