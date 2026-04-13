@@ -103,7 +103,7 @@
   "workbench.list.smoothScrolling": true,
   "workbench.layoutControl.enabled": false,
   "workbench.layoutControl.type": "toggles",
-  "workbench.activityBar.location": "bottom",
+  "workbench.activityBar.location": "top",
   "breadcrumbs.enabled": false,
 
   // ====================== 资源管理器设置 ======================
