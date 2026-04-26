@@ -47,7 +47,7 @@ eval "$(pyenv init -)"
 export NVM_DIR="$HOME/.nvm"
 source "/opt/homebrew/opt/nvm/nvm.sh"
 
-if [[ -z "$GVM_ROOT" && -s "$HOME/.gvm/scripts/gvm" ]]; then
+if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
     source "$HOME/.gvm/scripts/gvm"
 fi
 
