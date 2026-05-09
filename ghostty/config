@@ -9,19 +9,19 @@ keybind = cmd+e=unbind
 keybind = global:opt+`=toggle_quick_terminal
 quick-terminal-position = center
 quick-terminal-animation-duration = 0.1
-quick-terminal-autohide = true
+quick-terminal-autohide = false
 macos-hidden = never
 macos-option-as-alt = true
 
 # Font & Theme
 font-family = "Monaco"
-theme = "Dracula"
+theme = light:GitHub Dark Default,dark:Dracula
 
 font-size = 13.5
 
 # Background
-background-opacity = 0.88
-background-blur = 50
+background-opacity = 0.8
+background-blur = 18
 
 # Cursor
 cursor-style = block
