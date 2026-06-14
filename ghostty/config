@@ -9,13 +9,13 @@ keybind = cmd+e=unbind
 keybind = global:opt+`=toggle_quick_terminal
 quick-terminal-position = center
 quick-terminal-animation-duration = 0.1
-quick-terminal-autohide = false
-macos-hidden = never
+quick-terminal-autohide = true
+macos-hidden = always
 macos-option-as-alt = true
-
+keybind = cmd+shift+t=toggle_window_float_on_top
 # Font & Theme
 font-family = "Monaco"
-theme = light:GitHub Dark Default,dark:Dracula
+theme = light: dracula,dark:dracula
 
 font-size = 13.5
 
@@ -74,10 +74,10 @@ keybind = cmd+s>l=goto_split:right
 keybind = cmd+s>o=goto_split:next
 
 # Resize Splits (Prefix + H/J/K/L)
-keybind = cmd+s>shift+h=resize_split:left,10
-keybind = cmd+s>shift+j=resize_split:down,10
-keybind = cmd+s>shift+k=resize_split:up,10
-keybind = cmd+s>shift+l=resize_split:right,10
+keybind = cmd+s>shift+h=resize_split:left,20
+keybind = cmd+s>shift+j=resize_split:down,20
+keybind = cmd+s>shift+k=resize_split:up,20
+keybind = cmd+s>shift+l=resize_split:right,20
 
 # Continuous Resize (Hold Keys)
 keybind = ctrl+shift+h=resize_split:left,6
