@@ -424,4 +424,6 @@
     { "key": "j", "command": "list.focusDown", "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !editorTextFocus" },
     { "key": "k", "command": "list.focusUp", "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !editorTextFocus" },
 
+    { "key": "f4", "command": "git.openFile"},
+
 ]
